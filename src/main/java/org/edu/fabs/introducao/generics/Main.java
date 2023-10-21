@@ -1,4 +1,4 @@
-package org.edu.fabs.generics;
+package org.edu.fabs.introducao.generics;
 
 
 public class Main {

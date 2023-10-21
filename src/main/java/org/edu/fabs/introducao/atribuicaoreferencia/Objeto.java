@@ -1,4 +1,4 @@
-package org.edu.fabs.atribuicaoreferencia;
+package org.edu.fabs.introducao.atribuicaoreferencia;
 
 public class Objeto {
 

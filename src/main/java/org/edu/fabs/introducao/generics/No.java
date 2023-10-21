@@ -1,10 +1,10 @@
-package org.edu.fabs.generics;
+package org.edu.fabs.introducao.generics;
 
 public class No {
 
     // aceita apenas String
     private String conteudo;
-    private org.edu.fabs.noeencadeamento.No proximoNo;
+    private org.edu.fabs.introducao.noeencadeamento.No proximoNo;
 
     public No(String conteudo) {
         // garantir q a referencia do proximo nó seja nulo
@@ -12,11 +12,11 @@ public class No {
         this.conteudo = conteudo;
     }
 
-    public org.edu.fabs.noeencadeamento.No getProximoNo() {
+    public org.edu.fabs.introducao.noeencadeamento.No getProximoNo() {
         return proximoNo;
     }
 
-    public void setProximoNo(org.edu.fabs.noeencadeamento.No proximoNo) {
+    public void setProximoNo(org.edu.fabs.introducao.noeencadeamento.No proximoNo) {
         this.proximoNo = proximoNo;
     }
 

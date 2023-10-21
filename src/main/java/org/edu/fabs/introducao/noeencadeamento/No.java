@@ -1,4 +1,4 @@
-package org.edu.fabs.noeencadeamento;
+package org.edu.fabs.introducao.noeencadeamento;
 
 public class No {
 
