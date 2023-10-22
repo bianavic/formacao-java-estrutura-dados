@@ -8,6 +8,10 @@ public class ListaEncadeada<T> {
         referenciaEntrada = null;
     }
 
+    public No<T> getReferenciaEntrada() {
+        return referenciaEntrada;
+    }
+
     public void add(T conteudo) {
         No<T> novoNo = new No<>(conteudo);
 
@@ -34,15 +38,10 @@ public class ListaEncadeada<T> {
 
         validaIndice(indice); // se passar indice q nao existe? nullpointerexception
 
-        int ultimoIndice = size() -1;
-        if (indice >= size()) {
-            throw new IndexOutOfBoundsException("Nao existe conteudo no indice " +indice + " desta lista. A lista só vai até o indice " + ultimoIndice);
-        }
-
         No<T> noAuxiliar = referenciaEntrada;
         No<T> noRetorno = null;
 
-        for (int i = 0; i < this.size() - 1; i++) {
+        for (int i = 0; i <= indice; i++) {
             noRetorno = noAuxiliar; // antes da passagem para proximo no, guarda o retorno
             noAuxiliar = noAuxiliar.getProximoNo();
         }
@@ -51,7 +50,9 @@ public class ListaEncadeada<T> {
 
     public T remove(int indice) {
 
-        No<T> noMirado = this.getNo(indice);
+        validaIndice(indice);
+
+        No<T> noMirado = getNo(indice);
 
         // indice igual zero -> significa to removendo o primeiro no
         if (indice == 0) {
@@ -64,18 +65,6 @@ public class ListaEncadeada<T> {
             // qdo a jvm encontra-lo, pq nao tem a referencia, ira remove-lo da lista encadeada
             return noMirado.getConteudo();
         }
-    }
-
-    // se passar um indice q nao existe? nullpointerexception
-    public void validaIndice(int indice) {
-        int ultimoIndice = size() -1;
-        if (indice >= size()) {
-            throw new IndexOutOfBoundsException("Nao existe conteudo no indice " +indice + " desta lista. A lista só vai até o indice " + ultimoIndice);
-        }
-    }
-
-    public boolean isEmpty() {
-        return referenciaEntrada == null ? true : false;
     }
 
     public int size() {
@@ -92,7 +81,6 @@ public class ListaEncadeada<T> {
                 } else {
                     break;
                 }
-
             } else {
                 break;
             }
@@ -101,8 +89,29 @@ public class ListaEncadeada<T> {
         return tamanhoLista;
     }
 
-    public ListaEncadeada(No<T> referenciaEntrada) {
-        this.referenciaEntrada = referenciaEntrada;
+    // se passar um indice q nao existe? nullpointerexception
+    public void validaIndice(int indice) {
+        if (indice >= size()) {
+            int ultimoIndice = size() -1;
+            throw new IndexOutOfBoundsException("Nao existe conteudo no indice " +indice + " desta lista. A lista só vai até o indice " + ultimoIndice);
+        }
+    }
+
+    public boolean isEmpty() {
+        return referenciaEntrada == null ? true : false;
+    }
+
+    @Override
+    public String toString() {
+        String strRetorno = "";
+        No<T> noAuxiliar = referenciaEntrada;
+
+        for (int i = 0; i < this.size(); i++) {
+            strRetorno += "[ Nó { conteudo= " + noAuxiliar.getConteudo() + " } ] ----> ";
+            noAuxiliar = noAuxiliar.getProximoNo();
+        }
+        strRetorno += "null"; // ultimo no sempre aponta para nulo
+        return strRetorno;
     }
 
 }
