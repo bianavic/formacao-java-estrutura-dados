@@ -47,7 +47,23 @@ public class ListaEncadeada<T> {
             noAuxiliar = noAuxiliar.getProximoNo();
         }
         return noRetorno;
+    }
 
+    public T remove(int indice) {
+
+        No<T> noMirado = this.getNo(indice);
+
+        // indice igual zero -> significa to removendo o primeiro no
+        if (indice == 0) {
+            referenciaEntrada = noMirado.getProximoNo(); // a referencia do primeiro no sempre sera o seguinte
+            return noMirado.getConteudo();
+        } else {
+            No<T> noAnterior = getNo(indice -1);
+            noAnterior.setProximoNo(noMirado.getProximoNo());
+            // no return o nó ainda esta presente, mas nao há referencia,
+            // qdo a jvm encontra-lo, pq nao tem a referencia, ira remove-lo da lista encadeada
+            return noMirado.getConteudo();
+        }
     }
 
     // se passar um indice q nao existe? nullpointerexception
