@@ -23,7 +23,13 @@ public class ListaEncadeada<T> {
         noAuxiliar.setProximoNo(novoNo);
     }
 
+    // metodo get para retornar o conteudo, nao apenas o nó
+    public T get(int indice) {
+        return getNo(indice).getConteudo();
+    }
+
     // privado - metodo interno da classe
+    // utilidade: qdo implementar metodo remove
     private No<T> getNo(int indice) {
 
         validaIndice(indice); // se passar indice q nao existe? nullpointerexception
