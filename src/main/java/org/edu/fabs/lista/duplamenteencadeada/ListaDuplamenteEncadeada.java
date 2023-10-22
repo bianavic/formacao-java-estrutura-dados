@@ -9,11 +9,11 @@ public class ListaDuplamenteEncadeada<T> {
 
     // sempre q instanciar uma nova classe ListaDuplamenteEncadeada,
     // terei certeza q o tamanhoLista é zero, e q o primeiro e ultimo no serao nulo
-    public ListaDuplamenteEncadeada() {
-        this.primeiroNo = null;
-        this.ultimoNo = null;
-        this.tamanhoLista = 0;
-    }
+//    public ListaDuplamenteEncadeada() {
+//        this.primeiroNo = null;
+//        this.ultimoNo = null;
+//        this.tamanhoLista = 0;
+//    }
 
     public int size() {
         return this.tamanhoLista;
@@ -57,8 +57,7 @@ public class ListaDuplamenteEncadeada<T> {
 
         NoDuplo<T> noAuxiliar = getNo(indice);
         NoDuplo<T> novoNo = new NoDuplo<>(elemento);
-
-        novoNo.setNoPrevio(noAuxiliar);
+        novoNo.setNoProximo(noAuxiliar);
 
         // insercao no meio da lista
         if (novoNo.getNoProximo() != null) {
@@ -72,8 +71,8 @@ public class ListaDuplamenteEncadeada<T> {
         // inicio da lista
         if (indice == 0) {
             primeiroNo = novoNo;
-        } else { // meio da lista
-            novoNo.getNoPrevio().setNoPrevio(novoNo);
+        } else {
+            novoNo.getNoPrevio().setNoProximo(novoNo);
         }
         tamanhoLista++;
     }
@@ -98,7 +97,6 @@ public class ListaDuplamenteEncadeada<T> {
                 ultimoNo = noAuxiliar;
             }
         }
-
         this.tamanhoLista--;
     }
 
