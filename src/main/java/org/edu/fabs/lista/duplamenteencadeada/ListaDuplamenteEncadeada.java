@@ -78,6 +78,30 @@ public class ListaDuplamenteEncadeada<T> {
         tamanhoLista++;
     }
 
+    public void remove(int indice) {
+
+        if (indice == 0) {
+
+            primeiroNo = primeiroNo.getNoProximo();
+
+            if (primeiroNo != null) {
+                primeiroNo.setNoPrevio(null);
+            }
+
+        } else {
+            NoDuplo<T> noAuxiliar = getNo(indice);
+            noAuxiliar.getNoPrevio().setNoProximo(noAuxiliar.getNoProximo());
+
+            if (noAuxiliar != ultimoNo) {
+                noAuxiliar.getNoProximo().setNoPrevio(noAuxiliar.getNoPrevio());
+            } else {
+                ultimoNo = noAuxiliar;
+            }
+        }
+
+        this.tamanhoLista--;
+    }
+
     @Override
     public String toString() {
 
