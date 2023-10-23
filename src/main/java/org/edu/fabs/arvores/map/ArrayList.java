@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.introducao.map;
+package org.edu.fabs.arvores.map;
 
 import java.util.List;
 import java.util.Map;
