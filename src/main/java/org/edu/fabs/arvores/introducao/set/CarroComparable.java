@@ -20,18 +20,18 @@ public class CarroComparable implements Comparable<CarroComparable> {
         this.marca = marca;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CarroComparable that = (CarroComparable) o;
-        return Objects.equals(marca, that.marca);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(marca);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        CarroComparable that = (CarroComparable) o;
+//        return Objects.equals(marca, that.marca);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(marca);
+//    }
 
     @Override
     public String toString() {
