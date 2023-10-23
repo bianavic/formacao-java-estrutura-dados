@@ -61,4 +61,87 @@ public class ArvoreBinaria<T extends Comparable<T>> {
         }
     }
 
+    public void remover(T conteudo) {
+        try {
+            BinNo<T> atual = this.raiz;
+            BinNo<T> pai = null;
+            BinNo<T> filho  = null;
+            BinNo<T> temp = null;
+
+            // procurar o nó a ser excluido: buscar o primeiro nó com o conteudo passado
+            while (atual != null && !atual.getConteudo().equals(conteudo)) {
+
+                // loop
+                pai = atual;
+                if (conteudo.compareTo(atual.getConteudo()) < 0) {
+                    atual = atual.getNoEsq();
+                } else {
+                    atual = atual.getNoDir();
+                }
+            }
+
+            // se nao encontrar ninguem? ou cheguei numa folha ou a raiz é nula
+            if (atual == null) {
+                System.out.println("conteudo nao encontrado - bloco try");
+            }
+
+            // se pai == null
+            if (pai == null) {
+
+                if (atual.getNoDir() == null) {
+                    this.raiz = atual.getNoEsq();
+                } else if (atual.getNoEsq() == null) {
+                    this.raiz = atual.getNoDir();
+                } else {
+                    for (temp = atual, filho = atual.getNoEsq();
+                         filho.getNoDir() != null; // condicao de parada;
+                         temp = filho, filho = filho.getNoEsq()
+                    ) {
+                        if (filho != atual.getNoEsq()) {
+                            temp.setNoDir(filho.getNoEsq());
+                            filho.setNoEsq(raiz.getNoEsq());
+                        }
+                    }
+                    filho.setNoDir(raiz.getNoDir());
+                    raiz = filho;
+                }
+
+                // percorrer a arvore
+            } else if (atual.getNoDir() == null) { // se atual dir == null
+                if (pai.getNoEsq() == atual) {
+                    pai.setNoEsq(atual.getNoEsq());
+                } else {
+                    pai.setNoDir(atual.getNoEsq());
+                }
+            } else if (atual.getNoEsq() == null) { // se atual esq == null
+                if (pai.getNoEsq() == atual) {
+                    pai.setNoEsq(atual.getNoDir());
+                } else {
+                    pai.setNoDir(atual.getNoDir());
+                }
+            } else {
+
+                for (temp = atual, filho = atual.getNoEsq();
+                        filho.getNoDir() != null;
+                        temp = filho, filho.getNoDir()) {
+                    if (filho != atual.getNoEsq()) {
+                        temp.setNoDir(filho.getNoEsq());
+                        filho.setNoEsq(atual.getNoEsq());
+                    }
+                    filho.setNoDir(atual.getNoDir());
+                    if (pai.getNoEsq() == atual) {
+                        pai.setNoEsq(filho);
+                    } else {
+                        pai.setNoDir(filho);
+                    }
+                }
+
+            }
+
+        } catch (NullPointerException erro) {
+            System.out.println("conteudo nao encontrado - bloco catch");
+        }
+
+    }
+
 }
