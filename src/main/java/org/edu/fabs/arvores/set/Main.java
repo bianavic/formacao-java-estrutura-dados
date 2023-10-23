@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.introducao.set;
+package org.edu.fabs.arvores.set;
 
 import java.util.HashSet;
 import java.util.Set;

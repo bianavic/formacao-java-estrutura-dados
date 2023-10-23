@@ -1,6 +1,4 @@
-package org.edu.fabs.arvores.introducao.set;
-
-import java.util.Objects;
+package org.edu.fabs.arvores.set;
 
 public class CarroComparable implements Comparable<CarroComparable> {
 
