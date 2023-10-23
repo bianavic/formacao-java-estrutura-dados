@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.introducao.queue;
+package org.edu.fabs.arvores.queue;
 
 import java.util.Objects;
 

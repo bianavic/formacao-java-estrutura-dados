@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.introducao.list;
+package org.edu.fabs.arvores.list;
 
 import java.util.Objects;
 
