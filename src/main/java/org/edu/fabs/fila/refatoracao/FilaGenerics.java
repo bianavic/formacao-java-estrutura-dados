@@ -1,6 +1,5 @@
 package org.edu.fabs.fila.refatoracao;
 
-import org.edu.fabs.fila.No;
 
 public class FilaGenerics {
 
