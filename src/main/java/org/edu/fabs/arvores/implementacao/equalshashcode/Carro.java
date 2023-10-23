@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.introducao.equalshashcode;
+package org.edu.fabs.arvores.implementacao.equalshashcode;
 
 import java.util.Objects;
 

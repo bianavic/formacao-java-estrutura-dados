@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.queue;
+package org.edu.fabs.arvores.implementacao.queue;
 
 import java.util.LinkedList;
 import java.util.Queue;

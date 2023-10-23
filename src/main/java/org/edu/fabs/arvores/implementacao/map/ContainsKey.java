@@ -1,9 +1,9 @@
-package org.edu.fabs.arvores.map;
+package org.edu.fabs.arvores.implementacao.map;
 
 import java.util.List;
 import java.util.Map;
 
-public class ArrayList {
+public class ContainsKey {
 
     public static void main(String[] args) {
 
@@ -27,6 +27,10 @@ public class ArrayList {
         listaAlunos.add(aluno2);
 
         System.out.println(listaAlunos);
+
+        // map aluno contem uma chave chamada "Nome"
+        System.out.println(aluno.containsKey("Nome"));
+
     }
 
 }

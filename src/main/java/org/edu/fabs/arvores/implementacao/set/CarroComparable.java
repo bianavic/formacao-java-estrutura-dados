@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.set;
+package org.edu.fabs.arvores.implementacao.set;
 
 public class CarroComparable implements Comparable<CarroComparable> {
 

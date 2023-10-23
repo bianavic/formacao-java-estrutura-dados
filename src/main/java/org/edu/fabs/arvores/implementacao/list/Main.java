@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.list;
+package org.edu.fabs.arvores.implementacao.list;
 
 import java.util.ArrayList;
 import java.util.List;

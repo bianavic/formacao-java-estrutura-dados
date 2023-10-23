@@ -1,4 +1,4 @@
-package org.edu.fabs.arvores.stack;
+package org.edu.fabs.arvores.implementacao.stack;
 
 import java.util.Objects;
 
